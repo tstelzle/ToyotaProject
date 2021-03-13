@@ -1,3 +1,7 @@
+import os
+import sys
+import time
+
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -5,9 +9,6 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
 
-import time
-import sys
-import os
 
 def accept_cookie_consent(my_driver):
     try:
@@ -104,10 +105,9 @@ def main():
         file_name = "./screenshots/" + session_time + "_vote_" + str(counter) + ".png"
         make_screenshot(iframe_driver, file_name)
 
-        print('Vote: ' +  str(counter))
+        print('Vote: ' + str(counter))
 
         counter += 1
-
 
     for file in os.listdir(screenshot_dir):
         os.chmod(os.path.join(screenshot_dir, file), 0o777)
